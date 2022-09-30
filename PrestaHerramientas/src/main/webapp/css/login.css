@@ -4,10 +4,12 @@ body {
     height: 100vh;
     width: 100%;
     position: relative;
+    
     background-image: url(../img/background.jpg);
     background-image: cover;
     background-repeat: no-repeat;
     font-family: "Open Sans", sans-serif;    
+    
   
 }
 
@@ -70,10 +72,11 @@ body:before {
     transform: translateX(-50%);
 }
 
-.login_body h2 {
+.login_body h1 {
     font-size: 32px;
-    color: #fff;
+    color: black;
     margin-top: 0;
+    text-align: center;
 }
 
 .login_body input {

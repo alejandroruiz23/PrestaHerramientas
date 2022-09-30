@@ -54,7 +54,7 @@ nav a:hover{                                      /* HOVER: Para que me detecte 
   top: 7px; left: 260px;
 
 
-  .video{
+.video{
     width:100%
 }
 
@@ -79,7 +79,7 @@ nav a:hover{                                      /* HOVER: Para que me detecte 
     height: 100vh;
     width: 100%;
     position: relative;
-    background-image: url(../img/background.jpg);
+    background: url(img/cuenta.png);
     background-image: cover;
     background-repeat: no-repeat;
     font-family: "Open Sans", sans-serif;   
@@ -124,17 +124,29 @@ nav a:hover{                                      /* HOVER: Para que me detecte 
   padding-bottom: 2rem;
 }
 
-/*** Facts ***/
+
+
 .facts {
     background: rgba(1, 10, 53, .8);
+    
 }
 
 
 /*** Quote ***/
-@media (min-width: 992px) {
-    .container.quote {
-        max-width: 100% !important;
-    }
+
+}
+
+.letra{
+    font-family: 'Monserrat', cursive;
+    color:#000000;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 auto;
+    
+        
+    
+}
 
     .container.quote .quote-text {
         padding-left: calc(((100% - 960px) / 2) + .75rem);
@@ -143,7 +155,7 @@ nav a:hover{                                      /* HOVER: Para que me detecte 
     .container.quote .quote-form {
         padding-right: calc(((100% - 960px) / 2) + .75rem);
     }
-}
+
 
 @media (min-width: 1200px) {
     .container.quote .quote-text  {
@@ -180,6 +192,13 @@ nav a:hover{                                      /* HOVER: Para que me detecte 
     flex-direction: column;
     justify-content: center;
 }
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------
 # Footer
@@ -333,4 +352,20 @@ nav a:hover{                                      /* HOVER: Para que me detecte 
   text-align: center;
   font-size: 13px;
   color: #fff;
+}
+
+
+@media screen and (max-width:480px){
+    video{
+        width: 100%;
+    }
+    nav{
+        position: static;
+    }
+    .caja, .principal, .mapa-contenido, .contenido-diferenciales, .video {
+        width: auto;
+    }
+    .lista-diferenciales, .imagen-diferenciales{
+        width: 100%;
+    }
 }

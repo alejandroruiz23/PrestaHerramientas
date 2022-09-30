@@ -4,14 +4,37 @@ body {
     height: 100vh;
     width: 100%;
     position: relative;
+    
     background-image: url(../img/background.jpg);
     background-image: cover;
     background-repeat: no-repeat;
     font-family: "Open Sans", sans-serif;    
+    
   
 }
 
+nav{
+    font-family: "Playfair Display", serif;
+    font-weight: bold;                          /* Sirve para ponerlo en negrita */ 
+    font-size: 19px; 
+}
+  
+nav li{
+    position: relative;
+    top: 0px; left: 160px;
+}
 
+nav a:hover{                                      /* HOVER: Para que me detecte el movimiento del mouse y despues realice una accion */ 
+    color: #c78c19;
+    text-decoration: underline; 
+}
+
+.miCuenta{
+    padding: 0px 100px;
+    position: relative;
+    top: 7px; left: 260px;
+
+}
 
 body:before {
     content: '';
@@ -49,10 +72,11 @@ body:before {
     transform: translateX(-50%);
 }
 
-.login_body h2 {
+.login_body h1 {
     font-size: 32px;
-    color: #fff;
+    color: black;
     margin-top: 0;
+    text-align: center;
 }
 
 .login_body input {
