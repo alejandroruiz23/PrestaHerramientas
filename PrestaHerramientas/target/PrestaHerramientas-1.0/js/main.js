@@ -56,7 +56,7 @@ function getHerramienta(ordenar, orden) {
             let parsedResult = JSON.parse(result);
 
             if (parsedResult != false) {
-                mostrarherramientas(parsedResult);
+                mostrarHerramienta(parsedResult);
             } else {
                 console.log("Error recuperando los datos de las herramientas");
             }
@@ -65,7 +65,7 @@ function getHerramienta(ordenar, orden) {
 }
 
 
-function mostrarherramientas(herramienta) {
+function mostrarHerramienta(herramienta) {
 
     let contenido = "";
 
@@ -102,14 +102,80 @@ function mostrarherramientas(herramienta) {
             }
             contenido += '></td>' +
                     '<td>' + precio + '</td>' +
-                    '<td><button onclick="alquilarHerramienta(' + herramienta.id + ',' + precio + ');" class="btn btn-success" ';
+                    '<td><button onclick="Alquilar(' + herramienta.id + ',' + precio + ');" class="btn btn-success" ';
             if (user.saldo < precio) {
                 contenido += ' disabled ';
             }
 
-            contenido += '>Alquilar</button></td></tr>'
+            contenido += '>Reservar</button></td></tr>'
 
         }
     });
     $("#herramienta-tbody").html(contenido);
+    
+}
+
+function ordenarHerramientas() {
+
+    if ($("#icono-ordenar").hasClass("fa-sort")) {
+        getHerramienta(true, "ASC");
+        $("#icono-ordenar").removeClass("fa-sort");
+        $("#icono-ordenar").addClass("fa-sort-down");
+    } else if ($("#icono-ordenar").hasClass("fa-sort-down")) {
+        getHerramienta(true, "DESC");
+        $("#icono-ordenar").removeClass("fa-sort-down");
+        $("#icono-ordenar").addClass("fa-sort-up");
+    } else if ($("#icono-ordenar").hasClass("fa-sort-up")) {
+        getHerramienta(false, "ASC");
+        $("#icono-ordenar").removeClass("fa-sort-up");
+        $("#icono-ordenar").addClass("fa-sort");
+    }
+}
+function alquilarHerramienta(id, precio) {
+
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletHerramientaAlquilar",
+        data: $.param({
+            id: id,
+            username: username
+
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+
+            if (parsedResult != false) {
+                restarDinero(precio).then(function () {
+                    location.reload();
+                })
+            } else {
+                console.log("Error en la reserva de la herramienta");
+            }
+        }
+    });
+}
+
+
+async function restarDinero(precio) {
+
+    await $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletUsuarioRestarDinero",
+        data: $.param({
+            username: username,
+            saldo: parseFloat(user.saldo - precio)
+
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+
+            if (parsedResult != false) {
+                console.log("Saldo actualizado");
+            } else {
+                console.log("Error en el proceso de pago");
+            }
+        }
+    });
 }

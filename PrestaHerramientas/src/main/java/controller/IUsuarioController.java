@@ -15,4 +15,12 @@ public interface IUsuarioController {
             String nuevoNombre, String nuevosApellidos, String nuevoEmail,
             double nuevoSaldo, boolean nuevoFrecuente);
     
+    public String vernDisponible(String username);
+
+    public String devolverHerramientas(String username, Map<Integer, Integer> nDisponible);
+
+    public String eliminar(String username);
+    
+    public String restarDinero(String username, double nuevoSaldo);
+    
 }

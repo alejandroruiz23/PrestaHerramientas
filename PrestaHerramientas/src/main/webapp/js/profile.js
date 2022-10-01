@@ -48,7 +48,7 @@ async function fillUsuario() {
                 $("#input-apellidos").val(parsedResult.apellidos);
                 $("#input-email").val(parsedResult.email);
                 $("#input-saldo").val(parsedResult.saldo.toFixed(2));
-                $("#input-premium").prop("checked", parsedResult.premium);
+                $("#input-frecuente").prop("checked", parsedResult.frecuente);
 
             } else {
                 console.log("Error recuperando los datos del usuario");
@@ -96,7 +96,7 @@ function mostrarHistorial(herramienta) {
                 contenido += 'checked'
             }
             contenido += '></td><td>' + herramienta.fecha + '</td>' +
-                    '<td><button id="devolver-btn" onclick= "devolverherramienta(' + herramienta.id 
+                    '<td><button id="devolver-btn" onclick= "devolverHerramienta(' + herramienta.id 
                     + ');" class="btn btn-danger">Devolver herramienta</button></td></tr>';
 
         });

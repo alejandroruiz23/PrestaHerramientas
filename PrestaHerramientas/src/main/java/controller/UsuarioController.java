@@ -145,4 +145,109 @@ public class UsuarioController implements IUsuarioController {
         return "false";
 
     }
+    
+    @Override
+    public String vernDisponible(String username) {
+
+        DBConnection con = new DBConnection();
+        String sql = "Select id,count(*) as num_nDisponible from alquiler where username = '"
+                + username + "' group by id;";
+
+        Map<Integer, Integer> nDisponible = new HashMap<Integer, Integer>();
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int num_nDisponible = rs.getInt("num_nDisponible");
+
+                nDisponible.put(id, num_nDisponible);
+            }
+
+            devolverHerramientas(username, nDisponible);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+
+    }
+
+    @Override
+    public String devolverHerramientas(String username, Map<Integer, Integer> nDisponible) {
+
+        DBConnection con = new DBConnection();
+
+        try {
+            for (Map.Entry<Integer, Integer> herramienta : nDisponible.entrySet()) {
+                int id = herramienta.getKey();
+                int num_nDisponible = herramienta.getValue();
+
+                String sql = "Update herramienta set nDisponible = (Select nDisponible + " + num_nDisponible
+                        + " from herramienta where id = " + id + ") where id = " + id;
+
+                Statement st = con.getConnection().createStatement();
+                st.executeUpdate(sql);
+
+            }
+
+            this.eliminar(username);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+        return "false";
+    }
+
+    @Override
+    public String eliminar(String username) {
+
+        DBConnection con = new DBConnection();
+
+        String sql1 = "Delete from alquiler where username = '" + username + "'";
+        String sql2 = "Delete from usuario where username = '" + username + "'";
+
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql1);
+            st.executeUpdate(sql2);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+    }
+    
+    @Override
+    public String restarDinero(String username, double nuevoSaldo) {
+
+        DBConnection con = new DBConnection();
+        String sql = "Update usuario set saldo = " + nuevoSaldo + " where username = '" + username + "'";
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+    }
 }
