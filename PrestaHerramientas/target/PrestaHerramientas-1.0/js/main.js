@@ -56,9 +56,9 @@ function getHerramienta(ordenar, orden) {
             let parsedResult = JSON.parse(result);
 
             if (parsedResult != false) {
-                mostrarPeliculas(parsedResult);
+                mostrarherramientas(parsedResult);
             } else {
-                console.log("Error recuperando los datos de las peliculas");
+                console.log("Error recuperando los datos de las herramientas");
             }
         }
     });
@@ -76,18 +76,18 @@ function mostrarherramientas(herramienta) {
 
         if (herramienta.nDisponible > 0) {
 
-            if (user.premium) {
+            if (user.frecuente) {
 
                 if (herramienta.disponible) {
-                    precio = (2 - (2 * 0.1));
+                    precio = (100000 - (100000 * 0.1));
                 } else {
-                    precio = (1 - (1 * 0.1));
+                    precio = (50000 - (50000 * 0.1));
                 }
             } else {
                 if (herramienta.disponible) {
-                    precio = 2;
+                    precio = 200000;
                 } else {
-                    precio = 1;
+                    precio = 100000;
                 }
             }
 
@@ -96,18 +96,18 @@ function mostrarherramientas(herramienta) {
                     '<td>' + herramienta.marca + '</td>' +
                     '<td>' + herramienta.tipoTrabajo + '</td>' +
                     '<td>' + herramienta.nDisponible + '</td>' +
-                    '<td><input type="checkbox" name="novedad" id="disponible' + herramienta.id + '" disabled ';
+                    '<td><input type="checkbox" name="disponible" id="disponible' + herramienta.id + '" disabled ';
             if (herramienta.disponible) {
                 contenido += 'checked';
             }
             contenido += '></td>' +
                     '<td>' + precio + '</td>' +
-                    '<td><button onclick="alquilarPelicula(' + herramienta.id + ',' + precio + ');" class="btn btn-success" ';
+                    '<td><button onclick="alquilarHerramienta(' + herramienta.id + ',' + precio + ');" class="btn btn-success" ';
             if (user.saldo < precio) {
                 contenido += ' disabled ';
             }
 
-            contenido += '>Reservar</button></td></tr>'
+            contenido += '>Alquilar</button></td></tr>'
 
         }
     });

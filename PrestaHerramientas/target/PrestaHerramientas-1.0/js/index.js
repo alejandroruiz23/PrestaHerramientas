@@ -47,7 +47,7 @@ function registrarUsuario() {
     let username = $("#input-username").val();
     let contrasena = $("#input-contrasena").val();
     let contrasenaConfirmacion = $("#input-contrasena-repeat").val();
-    let nombre_usu = $("#input-nombre_usu").val();
+    let nombre_usu = $("#input-nombre").val();
     let apellidos = $("#input-apellidos").val();
     let email = $("#input-email").val();
     let saldo = $("#input-saldo").val();
@@ -86,3 +86,4 @@ function registrarUsuario() {
         $("#register-error").html("Las contraseñas no coinciden");
     }
 }
+

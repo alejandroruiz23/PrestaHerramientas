@@ -90,14 +90,14 @@ public class UsuarioController implements IUsuarioController {
 
             while (rs.next()) {
                 String contrasena = rs.getString("contrasena");
-                String nombre_usu = rs.getString("nombre_usu");
+                String nombre = rs.getString("nombre_usu");
                 String apellidos = rs.getString("apellidos");
                 String email = rs.getString("email");
                 double saldo = rs.getDouble("saldo");
                 boolean frecuente = rs.getBoolean("frecuente");
 
                 usuario usuario = new usuario(username, contrasena,
-                        nombre_usu, apellidos, email, saldo, frecuente);
+                        nombre, apellidos, email, saldo, frecuente);
 
                 return gson.toJson(usuario);
             }
@@ -108,5 +108,41 @@ public class UsuarioController implements IUsuarioController {
         }
 
         return "false";
+    }
+    
+    @Override
+    public String modificar(String username, String nuevaContrasena,
+            String nuevoNombre, String nuevosApellidos,
+            String nuevoEmail, double nuevoSaldo, boolean nuevoFrecuente) {
+
+        DBConnection con = new DBConnection();
+
+        String sql = "Update usuario set contrasena = '" + nuevaContrasena
+                + "', nombre_usu = '" + nuevoNombre + "', "
+                + "apellidos = '" + nuevosApellidos + "', email = '"
+                + nuevoEmail + "', saldo = " + nuevoSaldo + ", frecuente = ";
+
+        if (nuevoFrecuente == true) {
+            sql += " 1 ";
+        } else {
+            sql += " 0 ";
+        }
+
+        sql += " where username = '" + username + "'";
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+
     }
 }
