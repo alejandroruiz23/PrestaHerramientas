@@ -32,14 +32,18 @@ public class PruebaServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            String id = request.getParameter("id");
+            String name =request.getParameter("name");
+            
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet PruebaServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PruebaServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Hello Mundo ojala salga mi proyecto</h1>");
+            response.getWriter().append("El id que fue recibido es: "+id+" y el nombrede la pelicula es: "+ name);
             out.println("</body>");
             out.println("</html>");
         }
