@@ -1,0 +1,432 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  
+}
+
+html{
+   scroll-behavior: smooth;
+}
+
+a {
+  color: #cda45e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d9ba85;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+}
+
+
+header{
+    background-color: #BBBBBB;
+    padding: 20px 0px;               /* Padding sirve para dar espaciamietno (Alto, ancho) */ 
+
+}
+
+nav{
+  font-family: "Playfair Display", serif;
+  font-weight: bold;                          /* Sirve para ponerlo en negrita */ 
+  font-size: 19px; 
+
+}
+nav li{
+  position: relative;
+  top: 0px; left: 160px;
+
+}
+
+
+nav a:hover{                                      /* HOVER: Para que me detecte el movimiento del mouse y despues realice una accion */ 
+  color: #c78c19;
+  text-decoration: underline;
+
+}
+
+.miCuenta{
+  padding: 0px 100px;
+  position: relative;
+  top: 7px; left: 260px;
+    
+}
+.productos{
+    width: 940 px ;
+    margin:0 auto;
+    padding: 50px;
+}
+
+.productos li{
+    display: inline-block;    
+    text-align: center;  
+    width: 30%;
+    vertical-align: top;    
+    margin: 0 1.5%;                  /* Sirve para realizar un espaio externo entre las imgenes(Verticalm */ 
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 10px;        /* Sirve para colocar los amrgenes redondeados*/ 
+    border-color: black;
+
+
+}
+.productos li:hover{
+    border-color: #c78c19;
+
+}
+
+.productos li:active{
+    border-color: #088c19;
+
+}
+.productos h2{
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.productos li:hover h2 {
+    font-size: 33px;
+}
+
+img {
+ max-width: 100%;
+ max-height: 100%;
+ 
+}
+
+.productos-imagen {
+ height: 200px;
+ width: 200px;
+ margin: 0 auto;
+ 
+}
+
+.producto-descripcion{
+    font-size: 18px;
+
+}
+.producto-precio{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+footer{
+    text-align: center;
+    background: url(imagenes/bg.jpg);
+    padding: 40px;
+
+}
+
+.copyright{
+    color:#FFFFFF;
+    font-size: 13px;
+    margin:20px;
+    
+}
+
+
+form{
+    margin: 40px 0px;
+}
+
+form label, form legend{
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+
+.input-padron{
+    display: block;
+    margin:0 0 20px;
+    padding: 10px 25px;
+    width:50%
+}
+
+.checkbox{
+    margin: 20px 0;
+}
+
+.enviar{
+    width:40%; 
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background:orange;    /* Sirve para colocar el color del fondo*/ 
+    border: none;           /* Sirve para quitar el borde*/ 
+    border-radius: 5px;    /* Sirve para colocar las puntas del borde redondeadas*/ 
+    transition: 1s all;     /* Colocar tiempo para la transicion*/ 
+    cursor: pointer;   /* Sirve para cambiar el puntero por la manito*/ 
+}
+
+.enviar:hover{
+    
+    background:darkorange;  /* Para que cuando coloque el cursor encima cambie el color*/ 
+    transform: scale(1.2)    /* Para que el elemento aumente de tamaño*/
+}
+/* rotate(70deg) Para que el elemento  rote */
+
+table{
+    margin:40px 40px ;
+}
+
+thead{
+    background: #555555;
+    color: white;
+    font-weight: bold;
+}
+
+td,th{
+    border: 1px solid #000000;
+    padding: 8px 15px;
+
+}
+
+/*Aqui inicia elCSS para nuestro home*/
+
+
+.banner{
+    width: 100%;       /* Para que la imagen ocupe el 100% de la pagina */
+}
+
+
+.principal {
+    padding: 3em 0;
+    background: #FEFEFE;
+    width: 940px;
+    margin: 0 auto;
+}
+
+.titulo-principal{
+    text-align: center;
+    font-size: 2em;   /* PCon 2em le decimos al servidor que nos coloque el tamaño 2 veces mas grande de lo que */
+    margin: 0 0 1em;
+    clear: left;
+}
+
+.titulo-principal:first-letter{
+    font-weight: bold;
+}
+
+p:first-line{
+    font-style: italic;
+}
+
+.principal p{
+    margin: 0 0 1em;
+   
+
+}
+
+.principal strong{
+    font-weight: bold;
+}
+
+.principal em{
+    font-style: italic;
+}
+
+.utensilios{
+    width: 120px;
+    float:left;
+    margin: 0 20px 20 px 0;
+}
+
+.mapa{  
+    padding: 3em 0;
+    background: linear-gradient(#FEFEFE, #888888);
+}
+
+.mapa p{
+    margin:0 0 2m;
+    text-align: center;
+
+}
+
+.mapa-contenido {
+    width: 940px;
+    margin: 0 auto;
+
+}
+
+
+.diferenciales{
+    padding: 3em 0;
+    background:  #888888;
+    
+}
+.contenido-diferenciales{
+    width: 640px;
+    margin: 0 auto;
+}
+
+.lista-diferenciales{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: black;
+  padding: 0 0 30px 0;
+  color: #fff;
+  font-size: 14px;
+}
+
+#footer .footer-top {
+  background: #0c0b09;
+  border-top: 1px solid #37332a;
+  border-bottom: 1px solid #28251f;
+  padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .footer-info {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-info h3 {
+  font-size: 24px;
+  margin: 0 0 20px 0;
+  padding: 2px 0 2px 0;
+  line-height: 1;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+
+#footer .footer-top .footer-info p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-family: "Playfair Display", serif;
+  color: #fff;
+}
+
+#footer .footer-top .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #28251f;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .footer-top .social-links a:hover {
+  background: #cda45e;
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer .footer-top h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul i {
+  padding-right: 2px;
+  color: #cda45e;
+  font-size: 18px;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+#footer .footer-top .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: #fff;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  color: #cda45e;
+}
+
+#footer .footer-top .footer-newsletter form {
+  margin-top: 30px;
+  background: #28251f;
+  padding: 6px 10px;
+  position: relative;
+  border-radius: 50px;
+  border: 1px solid #454035;
+}
+
+#footer .footer-top .footer-newsletter form input[type=email] {
+  border: 0;
+  padding: 4px;
+  width: calc(100% - 110px);
+  background: #28251f;
+  color: white;
+}
+
+#footer .footer-top .footer-newsletter form input[type=submit] {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 0 20px 2px 20px;
+  background: #cda45e;
+  color: #fff;
+  transition: 0.3s;
+  border-radius: 50px;
+}
+
+#footer .footer-top .footer-newsletter form input[type=submit]:hover {
+  background: #d3af71;
+}
+
+#footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+}
+
+#footer .credits {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+}
