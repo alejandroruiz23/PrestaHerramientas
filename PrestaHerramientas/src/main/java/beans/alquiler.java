@@ -6,16 +6,16 @@ import java.sql.Date;
 public class alquiler {
     
     private int id;
-    private int username;
+    private String username;
     private Date fecha;
-     private boolean novedad;
+    private boolean disponible;
     private String marca;
 
-    public alquiler(int id, int username, Date fecha, boolean novedad, String marca) {
+    public alquiler(int id, String username, Date fecha, boolean disponible, String marca) {
         this.id = id;
         this.username = username;
         this.fecha = fecha;
-        this.novedad = novedad;
+        this.disponible = disponible;
         this.marca = marca;
     }
 
@@ -27,11 +27,11 @@ public class alquiler {
         this.id = id;
     }
 
-    public int getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(int username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -43,12 +43,12 @@ public class alquiler {
         this.fecha = fecha;
     }
 
-    public boolean isNovedad() {
-        return novedad;
+    public boolean isDisponible() {
+        return disponible;
     }
 
-    public void setNovedad(boolean novedad) {
-        this.novedad = novedad;
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
     }
 
     public String getMarca() {
@@ -61,8 +61,12 @@ public class alquiler {
 
     @Override
     public String toString() {
-        return "alquiler{" + "id=" + id + ", username=" + username + ", fecha=" + fecha + ", novedad=" + novedad + ", marca=" + marca + '}';
+        return "alquiler{" + "id=" + id + ", username=" + username + ", fecha=" + fecha + ", disponible=" + disponible + ", marca=" + marca + '}';
     }
+
+    
+
+    
     
     
     
